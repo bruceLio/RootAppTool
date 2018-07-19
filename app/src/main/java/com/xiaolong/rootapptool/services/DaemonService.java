@@ -1,4 +1,4 @@
-package com.xiaolong.rootapptool;
+package com.xiaolong.rootapptool.services;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -10,6 +10,9 @@ import android.content.IntentFilter;
 import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
+
+import com.xiaolong.rootapptool.R;
+import com.xiaolong.rootapptool.utils.L;
 
 import java.util.Date;
 
@@ -37,11 +40,11 @@ public class DaemonService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.e("xiaolong", "serviceCreate");
+        L.e( "serviceCreate");
         receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                Log.e("Xiaolong", new Date().toString());
+                L.e( new Date().toString());
             }
         };
         registerReceiver(receiver, new IntentFilter(Intent.ACTION_TIME_TICK));
@@ -66,14 +69,15 @@ public class DaemonService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         // 如果Service被终止
         // 当资源允许情况下，重启service
+        L.e("onStartCommand");
         return START_STICKY;
     }
 
 
     @Override
     public void onDestroy() {
+        L.e( "serviceDestory");
         super.onDestroy();
-        Log.e("xiaolong", "serviceDestory");
         // 如果Service被杀死，干掉通知
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
             NotificationManager mManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);

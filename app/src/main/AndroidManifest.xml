@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xiaolong.rootapptool">
 
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
     <application
-        android:name=".MyAppLication"
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -20,12 +21,12 @@
         </activity>
 
         <service
-            android:name=".DaemonService"
+            android:name=".services.DaemonService"
             android:enabled="true"
             android:exported="true"
             android:process=":daemon_service" />
         <service
-            android:name=".CancelNoticeService"
+            android:name=".services.CancelNoticeService"
             android:enabled="true"
             android:exported="true"
             android:process=":service" />

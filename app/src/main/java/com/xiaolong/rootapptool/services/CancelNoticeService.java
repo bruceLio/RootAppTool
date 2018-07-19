@@ -1,4 +1,4 @@
-package com.xiaolong.rootapptool;
+package com.xiaolong.rootapptool.services;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
 import android.os.SystemClock;
+
+import com.xiaolong.rootapptool.R;
 
 import androidx.annotation.Nullable;
 

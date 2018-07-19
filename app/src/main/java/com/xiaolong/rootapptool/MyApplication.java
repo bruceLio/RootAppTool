@@ -5,13 +5,15 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Process;
 
+import com.xiaolong.rootapptool.services.DaemonService;
+
 import java.util.List;
 
 /**
  * Created by xiaolong on 2018/7/18.
  */
-public class MyAppLication extends Application {
-    MyAppLication app;
+public class MyApplication extends Application {
+   public static MyApplication app;
 
     @Override
     public void onCreate() {
